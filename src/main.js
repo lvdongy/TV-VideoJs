@@ -6,10 +6,11 @@ import "@/static/index.scss";
 
 Vue.config.productionTip = false;
 
-import { Popover, Slider, Loading } from "element-ui";
+import { Popover, Slider, Loading, Drawer } from "element-ui";
 
 Vue.use(Popover);
 Vue.use(Slider);
+Vue.use(Drawer);
 Vue.use(Loading.directive);
 
 new Vue({

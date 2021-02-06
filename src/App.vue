@@ -16,7 +16,9 @@ export default {
       // if(ratio < 1) ratio = 1;
       document.documentElement.style.fontSize = ratio * 100 + 'px';
       if(w < 768){
-        document.body.style.fontSize = 0.16 + 'rem';
+        document.body.style.fontSize = 0.48 + 'rem';
+      }else{
+        document.body.style.fontSize = 0.16 + 'px';
       }
   }
 }

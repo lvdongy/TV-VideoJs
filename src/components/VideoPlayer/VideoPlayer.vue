@@ -192,7 +192,9 @@ export default {
                     return
                 }
                 if(this.video){
+                    this.video.pause();
                     this.video.src({src})
+                    this.video.play();
                 }else{
                     setTimeout(() => {
                         this.video.src({src})
