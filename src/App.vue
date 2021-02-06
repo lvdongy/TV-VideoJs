@@ -1,32 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: 'app',
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  created(){
+      const base = 1080; // 设计稿基准值
+      const w = document.documentElement.clientWidth;
+      let ratio = w / base;
+      // if(ratio > 2) ratio = 2;
+      // if(ratio < 1) ratio = 1;
+      document.documentElement.style.fontSize = ratio * 100 + 'px';
+      if(w < 768){
+        document.body.style.fontSize = 0.16 + 'rem';
+      }
   }
 }
-</style>
+</script>
+

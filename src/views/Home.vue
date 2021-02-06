@@ -1,18 +1,43 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <section class="player" :class="isPc ? 'pc' : 'mobile'">
+      <VideoPlayer
+        src="http://ivi.bupt.edu.cn/hls/cctv2hd.m3u8"
+      />
+    </section>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import { isPC } from '@/utils/util'
+import VideoPlayer from '@/components/VideoPlayer/VideoPlayer'
 export default {
   name: "Home",
+
   components: {
-    HelloWorld
+    VideoPlayer
+  },
+
+  data(){
+    return {
+      isPc: isPC(),
+    }
   }
+
 };
 </script>
+<style lang="scss" scoped>
+.home{
+  .player{
+    &.pc{
+      height: 500px;
+      width: 870px;
+    }
+
+    &.mobile{
+      width: 100%;
+      height: 5.88rem;
+    }
+  }
+}
+</style>
